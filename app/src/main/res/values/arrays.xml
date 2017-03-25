@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="kategori">
+        <item>Work</item>
+        <item>School</item>
+        <item>Personal</item>
+    </string-array>
+
+</resources>
