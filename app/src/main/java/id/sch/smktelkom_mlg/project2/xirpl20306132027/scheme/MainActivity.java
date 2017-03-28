@@ -1,20 +1,30 @@
 package id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme;
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.ArrayList;
+
+import id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.adapter.SchemeAdapter;
+import id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.model.Scheme;
+
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    SchemeAdapter mAdapter;
+    ArrayList<Scheme> mList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +37,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent k = new Intent(MainActivity.this, InputActivity.class);
+                startActivity(k);
             }
         });
 
@@ -40,6 +50,29 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        mAdapter = new SchemeAdapter(this, mList);
+        recyclerView.setAdapter(mAdapter);
+
+        filData();
+    }
+
+    private void filData() {
+        Resources resources = getResources();
+        String[] activity = resources.getStringArray(R.array.activity);
+        String[] due = resources.getStringArray(R.array.due);
+        String[] priority = resources.getStringArray(R.array.priority);
+        String[] category = resources.getStringArray(R.array.category);
+        String[] note = resources.getStringArray(R.array.note);
+        for (int i = 0; i < activity.length; i++) {
+            mList.add(new Scheme(activity[i], due[i], category[i],
+                    priority[i], note[i]));
+        }
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override

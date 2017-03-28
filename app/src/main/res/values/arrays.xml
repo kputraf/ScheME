@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string-array name="kategori">
-        <item>Work</item>
-        <item>School</item>
-        <item>Personal</item>
+    <string-array name="activity">
+        <item>Palais Garnie</item>
     </string-array>
-
+    <string-array name="due">
+        <item>01/98/12</item>
+    </string-array>
+    <string-array name="category">
+        <item></item>
+    </string-array>
+    <string-array name="priority">
+        <item>Medium</item>
+    </string-array>
+    <array name="note">
+        <item>aselole</item>
+    </array>
 </resources>
