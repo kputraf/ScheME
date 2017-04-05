@@ -1,30 +1,20 @@
 package id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.ArrayList;
-
-import id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.adapter.SchemeAdapter;
-import id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.model.Scheme;
-
-
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    SchemeAdapter mAdapter;
-    ArrayList<Scheme> mList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,28 +41,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        changePage(R.id.nav_all);
+        navigationView.setCheckedItem(R.id.nav_all);
 
-        mAdapter = new SchemeAdapter(this, mList);
-        recyclerView.setAdapter(mAdapter);
-
-        filData();
-    }
-
-    private void filData() {
-        Resources resources = getResources();
-        String[] activity = resources.getStringArray(R.array.activity);
-        String[] due = resources.getStringArray(R.array.due);
-        String[] priority = resources.getStringArray(R.array.priority);
-        String[] category = resources.getStringArray(R.array.category);
-        String[] note = resources.getStringArray(R.array.note);
-        for (int i = 0; i < activity.length; i++) {
-            mList.add(new Scheme(activity[i], due[i], category[i],
-                    priority[i], note[i]));
-        }
-        mAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -112,23 +83,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
+        changePage(id);
 
 
+        return true;
+    }
 
-        } else if (id == R.id.nav_share) {
+    private void changePage(int id) {
+        Fragment fragment = null;
 
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_all) {
+            fragment = new SectionAll();
+            setTitle("All Task");
+        } else if (id == R.id.nav_personal) {
+            fragment = new SectionPersonal();
+            setTitle("Personal Task");
+        } else if (id == R.id.nav_target) {
+            fragment = new SectionTarget();
+            setTitle("My Target");
+        } else if (id == R.id.nav_about) {
+            fragment = new SectionAbout();
+            setTitle("About");
         }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitNow();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <string-array name="activity">
         <item>Palais Garnie</item>
@@ -7,7 +8,7 @@
         <item>01/98/12</item>
     </string-array>
     <string-array name="category">
-        <item></item>
+        <item>Personal</item>
     </string-array>
     <string-array name="priority">
         <item>Medium</item>
