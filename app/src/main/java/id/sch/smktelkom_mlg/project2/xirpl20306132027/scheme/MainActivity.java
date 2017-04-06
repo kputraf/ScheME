@@ -102,9 +102,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_target) {
             fragment = new SectionTarget();
             setTitle("My Target");
-        } else if (id == R.id.nav_about) {
+        }
+        else if (id == R.id.nav_setting) {
+            fragment = new SectionSetting();
+            setTitle("Setting");
+        }else if (id == R.id.nav_about) {
             fragment = new SectionAbout();
-            setTitle("About");
+            setTitle("About Us");
         }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitNow();

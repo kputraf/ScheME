@@ -8,20 +8,20 @@
             android:title="All" />
         <item
             android:id="@+id/nav_personal"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_person_black_24dp"
             android:title="Personal" />
         <item
             android:id="@+id/nav_target"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_trending_up_black_24dp"
             android:title="Target" />
         <item
             android:id="@+id/nav_setting"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@drawable/ic_settings_black_24dp"
             android:title="Setting" />
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/ic_menu_send"
-            android:title="About" />
+            android:icon="@drawable/ic_group_black_24dp"
+            android:title="About Us" />
 
     </group>
 

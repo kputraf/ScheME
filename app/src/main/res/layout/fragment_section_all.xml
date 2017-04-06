@@ -19,7 +19,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -30,7 +31,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_toc_black_24dp"
+                    android:src="@drawable/ic_schedule_black_24dp"
                     android:tint="#B0BEC5" />
 
             </RelativeLayout>
@@ -38,7 +39,8 @@
             <LinearLayout
                 android:layout_width="218dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="0.65">
 
                 <TextView
                     android:id="@+id/activity"
@@ -86,23 +88,18 @@
 
             <LinearLayout
                 android:id="@+id/linearLayoutDone"
-                android:layout_width="62dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorAccent"
-                android:orientation="vertical"
-                android:padding="4dp">
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="1">
 
                 <ImageButton
                     android:id="@+id/bDelete"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:src="@drawable/ic_check_white_24dp" />
-
-                <ImageButton
-                    android:id="@+id/bEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:src="@drawable/ic_add_black_24dp" />
 
                 <TextView
                     android:id="@+id/category"
