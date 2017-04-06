@@ -80,7 +80,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayoutDone"
-            android:layout_width="62dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent"
             android:orientation="vertical"
@@ -90,13 +90,7 @@
                 android:id="@+id/bDelete"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:src="@drawable/ic_check_white_24dp" />
-
-            <ImageButton
-                android:id="@+id/bEdit"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:src="@drawable/ic_add_black_24dp" />
+                android:src="@drawable/ic_check_white_24dp" />/>
 
             <TextView
                 android:id="@+id/category"

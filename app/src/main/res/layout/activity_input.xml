@@ -59,7 +59,8 @@
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:entries="@array/category" />
 
         <TextView
             android:id="@+id/textView8"
@@ -106,6 +107,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/btnInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Submit" />
     </LinearLayout>
 
 </ScrollView>
