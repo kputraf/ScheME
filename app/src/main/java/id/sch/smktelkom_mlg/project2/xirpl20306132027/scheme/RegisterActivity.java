@@ -52,6 +52,16 @@ public class RegisterActivity extends AppCompatActivity {
                 doRegister();
             }
         });
+
+        tvGoLogin = (TextView) findViewById(R.id.textViewGoLogin);
+        tvGoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent z = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(z);
+                finish();
+            }
+        });
     }
 
     private boolean regTrue() {
