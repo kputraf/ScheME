@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         changePage(R.id.nav_all);
         navigationView.setCheckedItem(R.id.nav_all);
-
     }
 
     @Override
