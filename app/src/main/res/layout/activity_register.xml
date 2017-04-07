@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="16dp"
+    android:orientation="vertical"
+    tools:context="id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.RegisterActivity">
+
+    <EditText
+        android:id="@+id/editTextRegUsername"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="10dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:padding="11dp" />
+
+    <EditText
+        android:id="@+id/editTextRegEmail"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="10dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="11dp" />
+
+    <EditText
+        android:id="@+id/editTextRegPassword"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginLeft="10dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="11dp" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="7dp"
+        android:text="Register" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN" />
+
+</LinearLayout>
