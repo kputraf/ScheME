@@ -71,20 +71,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabslide);
         tabLayout.setupWithViewPager(mViewPager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("POS", pos);
-                if(pos == "per"){
-                    Intent k = new Intent(MainActivity.this, PersonalActivity.class);
-                    startActivity(k);
-                }else if(pos == "tar"){
-                    Intent k = new Intent(MainActivity.this, TargetActivity.class);
-                    startActivity(k);
-                }
-            }
-        });
+
     }
 
     @Override

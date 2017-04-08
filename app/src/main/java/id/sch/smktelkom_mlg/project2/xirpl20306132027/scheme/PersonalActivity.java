@@ -1,7 +1,9 @@
 package id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+
+import id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.model.Personal;
 
 public class PersonalActivity extends AppCompatActivity {
     Calendar dateTime = Calendar.getInstance();
@@ -46,12 +50,14 @@ public class PersonalActivity extends AppCompatActivity {
     private Long jumlahData;
     private Integer currentPostId;
     private String dbCurrentUser;
+    public static String pos = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal);
         setTitle("Input Personal");
+        Log.d("POS", pos);
 
         etActivity = (EditText) findViewById(R.id.editTextActivity);
         etDue = (EditText) findViewById(R.id.editTextDueAct);
@@ -71,6 +77,17 @@ public class PersonalActivity extends AppCompatActivity {
                 save();
             }
         });
+        FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.fabpersonal);
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("POS", pos);
+                if(pos == "per"){
+                    Intent k = new Intent(PersonalActivity.this, PersonalActivity.class);
+                    startActivity(k);
+                }
+            }
+                                });
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mDB = FirebaseDatabase.getInstance();
