@@ -1,5 +1,7 @@
 package id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,16 +12,29 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class MainActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase mDB;
+    private DatabaseReference mDBuser;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+
+    public static String pos = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +42,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("ScheME (Loading..)");
+        Log.d("POS", pos);
+
+        mAuth = FirebaseAuth.getInstance();
+        mDB = FirebaseDatabase.getInstance();
+        mDBuser = mDB.getReference().child("user_data");
+
+        DatabaseReference userName = mDBuser.child(mAuth.getCurrentUser().getUid()).child("username");
+        userName.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String username = dataSnapshot.getValue(String.class);
+                setTitle("ScheME " + "(" + username + ")");
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -34,13 +69,20 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabslide);
+        tabLayout.setupWithViewPager(mViewPager);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent k = new Intent(MainActivity.this, PersonalActivity.class);
-                startActivity(k);
+                Log.d("POS", pos);
+                if(pos == "per"){
+                    Intent k = new Intent(MainActivity.this, PersonalActivity.class);
+                    startActivity(k);
+                }else if(pos == "tar"){
+                    Intent k = new Intent(MainActivity.this, TargetActivity.class);
+                    startActivity(k);
+                }
             }
         });
     }
@@ -54,14 +96,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Logout")
+                    .setMessage("Apakah anda yakin ingin keluar")
+                    .setCancelable(true)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            mAuth.signOut();
+
+                            Intent b = new Intent(MainActivity.this, SplashActivity.class);
+                            startActivity(b);
+                            finish();
+                        }
+                    }).setNegativeButton("Cancel", null).show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -114,14 +165,15 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            if (position == 0)
-                return new SectionAll();
-            else if (position == 1)
+            if (position == 0) {
                 return new SectionPersonal();
-            else if (position == 2)
+            } else if (position == 1) {
+                return new SectionTarget();
+            } else if (position == 2) {
                 return new SectionSetting();
-            else
+            } else {
                 return PlaceholderFragment.newInstance(position + 1);
+            }
         }
 
         @Override
@@ -134,9 +186,9 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "All Task";
-                case 1:
                     return "Personal Task";
+                case 1:
+                    return "Target Task";
                 case 2:
                     return "Settings";
                 default:

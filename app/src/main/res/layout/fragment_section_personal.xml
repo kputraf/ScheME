@@ -5,9 +5,6 @@
     tools:context="id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.SectionPersonal">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Personal" />
+    <include layout="@layout/content_personal" />
 
 </FrameLayout>
