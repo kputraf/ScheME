@@ -10,7 +10,7 @@ Also this application need a connection internet, and need to Login to use this 
 
 <h4> Contributors </h4>
 <ul> Anggana Duhita Apsari    [XIRPL2/03] </ul>
-<ul>Deby Destyananda    [XIRPL2/07]</ul>
+<ul>Deby Destyananda    [XIRPL2/06]</ul>
 <ul>Krisna Putra Fardiansyah    [XIRPL2/13]</ul>
 <ul>Nofita Mahfudiyah   [XIRPL2/20]</ul>
-<ul>Salsadila   [XIRPL2/26]</ul>
+<ul>Salsadilla Nanda Octavia   [XIRPL2/27]</ul>
