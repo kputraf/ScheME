@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (position == 1) {
                 return new SectionTarget();
             } else if (position == 2) {
-                return new SectionSetting();
+                return new SectionAbout();
             } else {
                 return PlaceholderFragment.newInstance(position + 1);
             }
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     return "Target Task";
                 case 2:
-                    return "Settings";
+                    return "About Us";
                 default:
             }
             return null;
