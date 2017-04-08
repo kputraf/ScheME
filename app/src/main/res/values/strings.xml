@@ -6,4 +6,23 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- APP INTRO -->
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">ScheME</string>
+    <string name="slide_1_desc"> Keep track your Daily Activity and Targets easily with this app </string>
+
+    <string name="slide_2_title">Manage Your Task</string>
+    <string name="slide_2_desc"> Manage all of your uncomplete task and target </string>
+
+    <string name="slide_3_title">Internet Connection</string>
+    <string name="slide_3_desc">You need internet connection to log-in and access your task</string>
+
+    <string name="slide_4_title">Enjoy Our App</string>
+    <string name="slide_4_desc">Enjoy our app!</string>
+
 </resources>
