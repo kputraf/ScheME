@@ -1,11 +1,12 @@
 package id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,14 +55,20 @@ public class SectionPersonal extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mPersonalList.setLayoutManager(layoutManager);
         mPersonalList.setHasFixedSize(true);
+
+        FloatingActionButton fabs = (FloatingActionButton) getView().findViewById(R.id.fabpersonal);
+        fabs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent zu = new Intent(getActivity(), PersonalActivity.class);
+                startActivity(zu);
+            }
+        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
-        MainActivity.pos = "per";
-        Log.d("POS", MainActivity.pos);
 
         FirebaseRecyclerAdapter<Personal, PersonalViewHolder>
                 firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Personal, PersonalViewHolder>(

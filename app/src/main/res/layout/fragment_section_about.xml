@@ -1,11 +1,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.SectionAbout">
 
-    <!-- TODO: Update blank fragment layout -->
+    TODO: Update blank fragment layout
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,32 +17,12 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/krisna" />
+                android:layout_height="1280dp"
+                android:layout_marginBottom="-240dp"
+                android:layout_marginTop="-240dp"
+                android:padding="29dp"
+                android:src="@drawable/test" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/deby" />
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/nofita" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/sadil" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                app:srcCompat="@drawable/sari" />
         </LinearLayout>
     </ScrollView>
 

@@ -1,12 +1,13 @@
 package id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.model.Personal;
 import id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.model.Target;
 
 
@@ -56,14 +56,20 @@ public class SectionTarget extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mTargetlList.setLayoutManager(layoutManager);
         mTargetlList.setHasFixedSize(true);
+
+        FloatingActionButton fabs = (FloatingActionButton) getView().findViewById(R.id.fabtarget);
+        fabs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent zu = new Intent(getActivity(), TargetActivity.class);
+                startActivity(zu);
+            }
+        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
-        MainActivity.pos = "tar";
-        Log.d("POS", MainActivity.pos);
 
         FirebaseRecyclerAdapter<Target, TargetViewHolder>
                 firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Target, TargetViewHolder>(

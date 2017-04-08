@@ -1,9 +1,7 @@
 package id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -25,8 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.Calendar;
-
-import static id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.PersonalActivity.pos;
 
 public class TargetActivity extends AppCompatActivity {
     Calendar dateTime = Calendar.getInstance();
@@ -74,17 +70,6 @@ public class TargetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 save();
-            }
-        });
-        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fabtarget);
-        fab2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("POS", pos);
-                if(pos == "per"){
-                    Intent k = new Intent(TargetActivity.this, TargetActivity.class);
-                    startActivity(k);
-                }
             }
         });
 
