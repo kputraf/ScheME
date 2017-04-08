@@ -2,18 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginTop="16dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="24dp"
+    android:layout_marginRight="24dp"
+    android:layout_marginTop="56dp"
     android:orientation="vertical"
     tools:context="id.sch.smktelkom_mlg.project2.xirpl20306132027.scheme.RegisterActivity">
 
     <EditText
         android:id="@+id/editTextRegUsername"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
@@ -22,8 +23,9 @@
     <EditText
         android:id="@+id/editTextRegEmail"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -32,8 +34,9 @@
     <EditText
         android:id="@+id/editTextRegPassword"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -41,17 +44,21 @@
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="7dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
+        android:padding="12dp"
         android:text="Register" />
 
     <TextView
         android:id="@+id/textViewGoLogin"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
         android:padding="10dp"
         android:text="Login"
-        android:textAlignment="center" />
+        android:textSize="16dip" />
 
 </LinearLayout>
